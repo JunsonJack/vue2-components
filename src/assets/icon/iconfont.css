@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1677835818633') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Tick:before {
+  content: "\e655";
+}
+
+.icon-new:before {
+  content: "\e653";
+}
+
+.icon-dingwei:before {
+  content: "\e675";
+}
+
+.icon-edit:before {
+  content: "\e677";
+}
+
+.icon-delete:before {
+  content: "\e687";
+}
+

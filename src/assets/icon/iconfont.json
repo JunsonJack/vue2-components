@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "968716",
+      "name": "Tick",
+      "font_class": "Tick",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "1177789",
+      "name": "new",
+      "font_class": "new",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "1183130",
+      "name": "定位",
+      "font_class": "dingwei",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "6360853",
+      "name": "edit",
+      "font_class": "edit",
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "16615976",
+      "name": "delete",
+      "font_class": "delete",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    }
+  ]
+}
