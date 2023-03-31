@@ -91,6 +91,15 @@ export default new Router({
             isShow: true,
             title: "MyTable练习",
           }
+        },
+        {
+          path: 'MyMenu',
+          name: 'MyMenu',
+          component: () => import('../views/useMyMenu.vue'),
+          meta: {
+            isShow: true,
+            title: "MyMenu练习",
+          }
         }
 
       ]

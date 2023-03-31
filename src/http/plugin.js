@@ -1,7 +1,7 @@
-import { doGet, formPost, appJsonPost } from "./http";
+import { doGet, formPost, appJsonPost } from "./http"
 
 export default {
-    install(Vue){
+    install(Vue) {
         Vue.prototype.$doGet = doGet
         Vue.prototype.$formPost = formPost
         Vue.prototype.$appJsonPost = appJsonPost

@@ -23,22 +23,22 @@
 </template>
 
 <script>
-import china from "../assets/chinamap/china.json";
-var myChart;
-var PieChart;
-var lineChart;
-var mapChart;
+import china from "../assets/chinamap/china.json"
+var myChart
+var PieChart
+var lineChart
+var mapChart
 export default {
   name: "Echarts",
   data() {
     return {
       barData: [5, 15, 5, 25, 20, 35],
       wsData: {},
-    };
+    }
   },
   methods: {
     drawChart() {
-      myChart = this.$echarts.init(this.$refs.main);
+      myChart = this.$echarts.init(this.$refs.main)
 
       let option = {
         title: {
@@ -59,11 +59,11 @@ export default {
             data: this.barData,
           },
         ],
-      };
-      myChart.setOption(option);
+      }
+      myChart.setOption(option)
     },
     drawChart2() {
-      PieChart = this.$echarts.init(this.$refs.main2);
+      PieChart = this.$echarts.init(this.$refs.main2)
       var option = {
         title: {
           text: "员工学历分布图",
@@ -101,27 +101,27 @@ export default {
             ],
           },
         ],
-      };
-      PieChart.setOption(option);
+      }
+      PieChart.setOption(option)
     },
     drawChart3() {
-      lineChart = this.$echarts.init(this.$refs.main3);
-      let base = +new Date(1968, 9, 3);
-      let oneDay = 24 * 3600 * 1000;
-      let date = [];
-      let data = [Math.random() * 300];
+      lineChart = this.$echarts.init(this.$refs.main3)
+      let base = +new Date(1968, 9, 3)
+      let oneDay = 24 * 3600 * 1000
+      let date = []
+      let data = [Math.random() * 300]
       for (let i = 1; i < 20000; i++) {
-        var now = new Date((base += oneDay));
+        var now = new Date((base += oneDay))
         date.push(
           [now.getFullYear(), now.getMonth() + 1, now.getDate()].join("/")
-        );
-        data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
+        )
+        data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]))
       }
       var option = {
         tooltip: {
           trigger: "axis",
           position: function (pt) {
-            return [pt[0], "10%"];
+            return [pt[0], "10%"]
           },
         },
         title: {
@@ -172,21 +172,21 @@ export default {
             data: data,
           },
         ],
-      };
-      lineChart.setOption(option);
+      }
+      lineChart.setOption(option)
     },
     dramMap() {
       //初始化中国地图,引入china.json文件
-      this.$echarts.registerMap("china", china);
-      mapChart = this.$echarts.init(this.$refs.map);
+      this.$echarts.registerMap("china", china)
+      mapChart = this.$echarts.init(this.$refs.map)
       var points = [
-        {value: [118.8062,31.9208], itemStyle:{color: '#c59800'}},
-        {value: [110.3467,41.4899], itemStyle:{color: '#c59800'}},
-        {value: [125.8154,44.2584], itemStyle:{color: '#c59800'}},
-        {value: [116.405285, 39.904989], itemStyle:{color: '#c59800'}},
-        {value: [112.549248, 37.857014], itemStyle:{color: '#c59800'}},
-        {value: [115.892151, 28.676493], itemStyle:{color: '#c59800'}},
-        {value: [113.280637, 23.125178], itemStyle:{color: '#c59800'}}
+        { value: [118.8062, 31.9208], itemStyle: { color: '#c59800' } },
+        { value: [110.3467, 41.4899], itemStyle: { color: '#c59800' } },
+        { value: [125.8154, 44.2584], itemStyle: { color: '#c59800' } },
+        { value: [116.405285, 39.904989], itemStyle: { color: '#c59800' } },
+        { value: [112.549248, 37.857014], itemStyle: { color: '#c59800' } },
+        { value: [115.892151, 28.676493], itemStyle: { color: '#c59800' } },
+        { value: [113.280637, 23.125178], itemStyle: { color: '#c59800' } }
       ]
       var options = {
         backgroundColor: "rgb(121,145,209)",
@@ -293,8 +293,8 @@ export default {
             data: points
           },
         ],
-      };
-      mapChart.setOption(options);
+      }
+      mapChart.setOption(options)
     },
     // initWebSocket() {
     //   this.websock = new WebSocket("ws://localhost:8082");
@@ -331,32 +331,32 @@ export default {
       {
         message: "hello",
         func: function (e) {
-          console.log("hello", e);
-          return "hi yiye";
+          console.log("hello", e)
+          return "hi yiye"
         },
       },
       {
         message: "world",
         func: function (e) {
-          console.log("world", e);
-          return "hello worker";
+          console.log("world", e)
+          return "hello worker"
         },
       },
       {
         message: "getData",
         func: function (e) {
-          console.log(e); //[5, 15, 5, 25, 20, 35]
-          let barData = e.map(o => o*2)
+          console.log(e) //[5, 15, 5, 25, 20, 35]
+          let barData = e.map(o => o * 2)
           return barData
         },
       },
-    ]);
+    ])
   },
   mounted() {
     // this.drawChart();
-    this.drawChart2();
-    this.drawChart3();
-    this.dramMap();
+    this.drawChart2()
+    this.drawChart3()
+    this.dramMap()
     // this.initWebSocket();
     // 第一个是调用的事件名称，第二参数是传入的值
     // var _this = this;
@@ -372,19 +372,19 @@ export default {
     this.worker.postMessage("getData", [this.barData]).then((res) => {
       // this.barData=Array.from(res);\
       this.barData = res
-      console.log('res',res);
-      return this.drawChart();
-    });
+      console.log('res', res)
+      return this.drawChart()
+    })
   },
   beforeDestroy() {
     // this.websocketclose();
-    this.$echarts.dispose(myChart);
-    this.$echarts.dispose(PieChart);
-    this.$echarts.dispose(lineChart);
-    console.log("销毁了chart");
+    this.$echarts.dispose(myChart)
+    this.$echarts.dispose(PieChart)
+    this.$echarts.dispose(lineChart)
+    console.log("销毁了chart")
   },
   destroyed() {
-    this.worker = null;
+    this.worker = null
 
     // this.websocketclose()
   },

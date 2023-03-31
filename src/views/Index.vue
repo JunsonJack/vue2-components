@@ -24,10 +24,11 @@
         <el-container>
           <el-main>
             <el-breadcrumb separator="/">
-              <el-breadcrumb-item 
-              v-for="(item, index) in lists" 
-              :key="item.path">
-                <router-link :to="item.path">{{item.meta.title}}</router-link>
+              <el-breadcrumb-item
+                v-for="(item, index) in lists"
+                :key="item.path"
+              >
+                <router-link :to="item.path">{{ item.meta.title }}</router-link>
               </el-breadcrumb-item>
             </el-breadcrumb>
             <router-view></router-view>
@@ -45,28 +46,28 @@ export default {
   data() {
     return {
       routerList: [],
-      lists:[]
-    };
+      lists: []
+    }
   },
   components: {},
-  created(){
+  created() {
 
     console.log("🚀 ~ file: Index.vue ~ line 50 ~ created ~ this.$route.matched", this.$route.matched)
-    this.lists = this.$route.matched 
+    this.lists = this.$route.matched
     // 模拟权限数组;
-    let arr = ['admin'];
-    sessionStorage.setItem("btnPermissions",arr)
+    let arr = ['admin']
+    sessionStorage.setItem("btnPermissions", arr)
   },
   mounted() {
-    console.log(this.$router.getRoutes());
-    this.routerList = this.$router.getRoutes().filter((o) => o.meta.isShow);
-    console.log(this.routerList);
+    console.log(this.$router.getRoutes())
+    this.routerList = this.$router.getRoutes().filter((o) => o.meta.isShow)
+    console.log(this.routerList)
   },
-  watch:{
-    $route(to,from) {
-      console.log('to',to);
+  watch: {
+    $route(to, from) {
+      console.log('to', to)
       this.lists = to.matched
-      
+
     }
   }
 };

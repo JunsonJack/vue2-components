@@ -55,14 +55,14 @@
         <v-form :data="FormData"></v-form>
       </el-col>
       <el-col :span="12">
-        <MyTree/>
+        <MyTree />
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-import selfForm from "../components/selfForm.vue";
+import selfForm from "../components/selfForm.vue"
 import MyTree from '../components/MyTree.vue'
 export default {
   components: {
@@ -198,7 +198,7 @@ export default {
               console.log(
                 "🚀 ~ file: useForm.vue ~ line 177 ~ data ~ form",
                 data
-              );
+              )
             },
           },
           {
@@ -206,14 +206,14 @@ export default {
             type: "warning",
             action: "reset",
             call: () => {
-              console.log("🚀 ~ file: useForm.vue ~ line 185 ~ data ~ reset");
+              console.log("🚀 ~ file: useForm.vue ~ line 185 ~ data ~ reset")
             },
           },
           {
             label: "其他",
             type: "success",
             call: () => {
-              console.log("🚀 ~ file: useForm.vue ~ line 193 ~ data ~ other");
+              console.log("🚀 ~ file: useForm.vue ~ line 193 ~ data ~ other")
             },
           },
         ],
@@ -271,14 +271,14 @@ export default {
           ],
         },
       },
-    };
+    }
   },
   methods: {
     onSubmit() {
-      console.log(JSON.stringify(this.userInfo));
+      console.log(JSON.stringify(this.userInfo))
     },
     Submit() {
-      console.log("🚀 ~ file: Form.vue ~ line 143 ~ Submit ~ Submit");
+      console.log("🚀 ~ file: Form.vue ~ line 143 ~ Submit ~ Submit")
     },
   },
 };

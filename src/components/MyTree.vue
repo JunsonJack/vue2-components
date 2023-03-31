@@ -96,8 +96,7 @@
     </div>
   </div>
 </template>
- 
- 
+
 <script>
 export default {
   name: "MyTree",
@@ -112,71 +111,77 @@ export default {
       isTreeAll: true,
       // S tree 节点操作相关
 
-
-      treeObjdata: [{
-        id: 1,
-        label: '技术中心',
-        isEdit: false,//节点编辑
-        isGroup: true,
-        children: [{
-          id: 4,
-          label: '开发部',
-          isEdit: false,//节点编辑
+      treeObjdata: [
+        {
+          id: 1,
+          label: "技术中心",
+          isEdit: false, //节点编辑
           isGroup: true,
-          children: [{
-            id: 9,
-            label: '视频设备-1',
-            isGroup: false,
-
-          }, {
-            id: 10,
-            label: '视频设备-2',
-            isGroup: false,
-          }]
-        }]
-      }, {
-        id: 2,
-        label: '商务中心',
-        isEdit: false,//节点编辑
-        isGroup: true,
-        children: [{
-          id: 5,
-          label: '视频设备热成像视频设备热成像视频设备热成像',
-          isEdit: false,//节点编辑
-          isGroup: false,
-
-        }, {
-          id: 6,
-          label: '视频设备可见光',
-          isEdit: false,//节点编辑
-          isGroup: false,
-
-        }]
-      },
-      {
-        id: 9527,//未分组组别 id固定 或固定其他字段标识
-        label: '未分组',
-        isEdit: false,//节点编辑
-        isGroup: true,
-        children: [{
-          id: 5564564564656,
-          label: '视频设备未分组1',
-          isEdit: false,//节点编辑
-          isGroup: false,
-
-        }, {
-          id: 67897897,
-          label: '视频设备未分组2',
-          isEdit: false,//节点编辑
-          isGroup: false,
-
-        }]
-      }
-
+          children: [
+            {
+              id: 4,
+              label: "开发部",
+              isEdit: false, //节点编辑
+              isGroup: true,
+              children: [
+                {
+                  id: 9,
+                  label: "视频设备-1",
+                  isGroup: false
+                },
+                {
+                  id: 10,
+                  label: "视频设备-2",
+                  isGroup: false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 2,
+          label: "商务中心",
+          isEdit: false, //节点编辑
+          isGroup: true,
+          children: [
+            {
+              id: 5,
+              label: "视频设备热成像视频设备热成像视频设备热成像",
+              isEdit: false, //节点编辑
+              isGroup: false
+            },
+            {
+              id: 6,
+              label: "视频设备可见光",
+              isEdit: false, //节点编辑
+              isGroup: false
+            }
+          ]
+        },
+        {
+          id: 9527, //未分组组别 id固定 或固定其他字段标识
+          label: "未分组",
+          isEdit: false, //节点编辑
+          isGroup: true,
+          children: [
+            {
+              id: 5564564564656,
+              label: "视频设备未分组1",
+              isEdit: false, //节点编辑
+              isGroup: false
+            },
+            {
+              id: 67897897,
+              label: "视频设备未分组2",
+              isEdit: false, //节点编辑
+              isGroup: false
+            }
+          ]
+        }
       ],
       defaultProps: {
-        children: 'children',
-        label: 'label'
+        children: "children",
+        label: "label"
       }
     }
   },
@@ -187,9 +192,7 @@ export default {
   },
   methods: {
     //S 搜索
-    searchFun() {
-
-    },
+    searchFun() { },
     filterTreeNode(value, data) {
       if (!value) return true
       return data.label.indexOf(value) !== -1
@@ -206,14 +209,20 @@ export default {
     //S tree node 新增删除修改
     addGroupTree(data) {
       if (!data.children) {
-        this.$set(data, 'children', [])
+        this.$set(data, "children", [])
       }
-      let label = '新建分组' + (data.children.length + 1)
-      const newChild = { id: new Date().getTime(), label: label, isEdit: false, isGroup: true, children: [] }
+      let label = "新建分组" + (data.children.length + 1)
+      const newChild = {
+        id: new Date().getTime(),
+        label: label,
+        isEdit: false,
+        isGroup: true,
+        children: []
+      }
       data.children.push(newChild)
     },
     editGroupTree(data, node) {
-      this.editNodeVal = data.label + ''
+      this.editNodeVal = data.label + ""
       data.isEdit = true
       this.ishaveEdit = true
     },
@@ -238,10 +247,15 @@ export default {
 
     // 新建分组
     addFirstTreeNode() {
-
       let oindex = this.treeObjdata.length - 1
-      let label = '新建分组' + this.treeObjdata.length
-      const newChild = { id: new Date().getTime(), label: label, isEdit: false, isGroup: true, children: [] }
+      let label = "新建分组" + this.treeObjdata.length
+      const newChild = {
+        id: new Date().getTime(),
+        label: label,
+        isEdit: false,
+        isGroup: true,
+        children: []
+      }
       this.treeObjdata.splice(oindex, 0, newChild)
 
       console.log("添加一级分组", this.treeObjdata)
@@ -249,28 +263,23 @@ export default {
 
     //E tree node 新增删除修改
 
-
-
-
-
-
     handleDragStart(node, ev) {
-      console.log('drag start', node)
+      console.log("drag start", node)
     },
     handleDragEnter(draggingNode, dropNode, ev) {
-      console.log('tree drag enter: ', dropNode.label)
+      console.log("tree drag enter: ", dropNode.label)
     },
     handleDragLeave(draggingNode, dropNode, ev) {
-      console.log('tree drag leave: ', dropNode.label)
+      console.log("tree drag leave: ", dropNode.label)
     },
     handleDragOver(draggingNode, dropNode, ev) {
-      console.log('tree drag over: ', dropNode.label)
+      console.log("tree drag over: ", dropNode.label)
     },
     handleDragEnd(draggingNode, dropNode, dropType, ev) {
-      console.log('tree drag end: ', dropNode, dropType)
+      console.log("tree drag end: ", dropNode, dropType)
     },
     handleDrop(draggingNode, dropNode, dropType, ev) {
-      console.log('tree drop: ', dropNode.label, dropType)
+      console.log("tree drop: ", dropNode.label, dropType)
       console.log("最终数据", this.data)
     },
 
@@ -279,39 +288,37 @@ export default {
       // 判断拖拽目标是否可以被放置到子节点
       if (!draggingNode.data.isGroup) {
         if (dropNode.level == 1) {
-          return type === 'inner'
+          return type === "inner"
         } else {
-          return type !== 'inner'
+          return type !== "inner"
         }
       } else {
         // 判断是否是未分组
         if (dropNode.level == 1) {
-          if (dropNode.data.id == '9527') {
-            return type === 'prev'
+          if (dropNode.data.id == "9527") {
+            return type === "prev"
           } else {
             return true
           }
         } else {
           // 判断父级是否是未分组
-          if (dropNode.parent.data.id == '9527') {
+          if (dropNode.parent.data.id == "9527") {
             return false
           } else {
             return true
           }
         }
-
-
       }
     },
     allowDrag(draggingNode) {
       console.log("允许拖拽", draggingNode)
-      return draggingNode.data.id != '9527'
+      return draggingNode.data.id != "9527"
       //   return true
     }
   }
 };
 </script>
- 
+
 <style lang="scss" scoped>
 @mixin tree-font-color-size {
   color: #333333;

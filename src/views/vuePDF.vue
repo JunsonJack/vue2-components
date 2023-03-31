@@ -26,7 +26,7 @@
 
 <script>
 //https://blog.csdn.net/woshiwangdaye/article/details/111193013
-import pdf from "vue-pdf";
+import pdf from "vue-pdf"
 export default {
   components: { pdf },
   data() {
@@ -35,43 +35,43 @@ export default {
       pageCount: 0, // pdf文件总页数
       fileType: "pdf", // 文件类型
       pdfUrl: "", // pdf文件地址
-    };
+    }
   },
   methods: {
     //预览PDF翻页方法
     changePdfPage(val) {
       // console.log(val)
       if (val === 0 && this.currentPage > 1) {
-        this.currentPage--;
+        this.currentPage--
         // console.log(this.currentPage)
       }
       if (val === 1 && this.currentPage < this.pageCount) {
-        this.currentPage++;
+        this.currentPage++
         // console.log(this.currentPage)
       }
     },
     // pdf加载时
     loadPdfHandler(e) {
-      this.currentPage = 1; // 加载的时候先加载第一页
+      this.currentPage = 1 // 加载的时候先加载第一页
     },
     //初始化pdf路径
     initPdf() {
       //这里的PDF路径就是上传到后台的路径
-      this.downloadFileUrl = "http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf";
+      this.downloadFileUrl = "http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf"
       this.pdfUrl =
-        "http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf";
+        "http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf"
     },
     downloadFile() {
       window.location.href =
         "http://xxx.xxx.xxx.xxx/downloadFile?token=xxx&path=" +
-        this.downloadFileUrl;
-      this.$message.success("下载成功！");
+        this.downloadFileUrl
+      this.$message.success("下载成功！")
     },
   },
   mounted() {
-    this.initPdf();
+    this.initPdf()
   },
-  created() {},
+  created() { },
 };
 </script>
 

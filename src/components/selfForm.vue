@@ -127,9 +127,9 @@
 
 <script>
 
-import {debounce} from '../utils/delay'
+import { debounce } from '../utils/delay'
 export default {
-  name:'selfform',
+  name: 'selfform',
   props: {
     data: Object,
   },
@@ -137,71 +137,71 @@ export default {
     return {
       ruleForm: {},
       rules: {},
-    };
+    }
   },
   methods: {
-    callSelf:debounce(
+    callSelf: debounce(
       function (formName, action, callback) {
-      if (action == "submit") {
-        this.submitForm(formName, callback);
-      } else if (action == "reset") {
-        this.resetForm(formName,callback);
-      } else {
-        callback && callback();
-      }
-    },1000),
+        if (action == "submit") {
+          this.submitForm(formName, callback)
+        } else if (action == "reset") {
+          this.resetForm(formName, callback)
+        } else {
+          callback && callback()
+        }
+      }, 1000),
     submitForm(formName, callback) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log("submit!");
-          callback && callback(this.ruleForm);
+          console.log("submit!")
+          callback && callback(this.ruleForm)
         } else {
-          console.log("error submit!!");
-          return false;
+          console.log("error submit!!")
+          return false
         }
-      });
+      })
     },
-    resetForm(formName,callback) {
+    resetForm(formName, callback) {
       callback()
-      this.$refs[formName].resetFields();
+      this.$refs[formName].resetFields()
     },
     init() {
-      let form = {};
-      let box = [];
+      let form = {}
+      let box = []
       this.data.items.forEach(item => {
         switch (item.type) {
           case 'Checkbox':
             if (item.default) {
               if (Array.isArray(item.default)) {
-                box = box.concat(item.default);
+                box = box.concat(item.default)
               } else {
-                box.push(item.default);
+                box.push(item.default)
               }
             }
-            form[item.prop] = box;
-            break;
+            form[item.prop] = box
+            break
           case "Date":
           case "Time":
           case "DateTime":
             if (item.default) {
-              form[item.prop] = new Date(item.default);
+              form[item.prop] = new Date(item.default)
             }
-            break;
+            break
           default:
             form[item.prop] = item.default
-            break;
+            break
         }
-      });
+      })
       this.ruleForm = form
       this.rules = this.data.rules
     },
-    func(formName,action,call){
+    func(formName, action, call) {
       // 'ruleForm', o.action, o.call
       // this.$throttle(this.callSelf(formName,action,call),2000);
     }
   },
   created() {
-    this.init();
+    this.init()
   },
 
 };

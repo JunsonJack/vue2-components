@@ -6,7 +6,7 @@ import data from '../mock/data'
 
 formatRouterTree(data)
 
-function formatRouterTree (data) {
+function formatRouterTree(data) {
   // 现将总结点分离，其余都当做子节点
   let parent = data.filter(p => p.pid === 0),
     children = data.filter(c => c.pid !== 0)
@@ -14,7 +14,7 @@ function formatRouterTree (data) {
   dataToTree(parent, children)
   console.log(parent)
 
-  function dataToTree (parent, children) {
+  function dataToTree(parent, children) {
     parent.map(p => {
       children.map((c, i) => {
         if (c.pid === p.id) {

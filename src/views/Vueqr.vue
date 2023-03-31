@@ -6,7 +6,7 @@
         </vue-qr>
       </el-col>
       <el-col :span="12">
-         <div>vue-draggable 实现拖拽</div>
+        <div>vue-draggable 实现拖拽</div>
         <div class="drag">
           <draggable
             v-model="myArray"
@@ -27,9 +27,9 @@
   </div>
 </template>
  <script>
-import draggable from "vuedraggable";
+import draggable from "vuedraggable"
 //  最新版的vue-qr会报错，cnpm i vue-qr@3.2.2
-import VueQr from "vue-qr";
+import VueQr from "vue-qr"
 export default {
   name: "",
   components: {
@@ -47,7 +47,7 @@ export default {
         { people: "cn", id: 3, name: "王五" },
         { people: "cn", id: 4, name: "钟馗" },
       ],
-    };
+    }
   },
   methods: {
     // 开始拖拽事件
@@ -65,21 +65,21 @@ export default {
 </script>
 <style lang="scss" scoped >
 .drag {
-   width: 300px;
-   background-color: #fff;
-   .item {
-      height: 30px;
-      line-height: 30px;
-      font-size: 25px;
-      margin-top: 10px;
-      background-color: #fff;
-      border: 1px #ccc solid;
-      text-align: center;
-      &:hover {
-         background-color: rgb(235, 235, 235);
-      }
-      cursor: move;
-   }
+  width: 300px;
+  background-color: #fff;
+  .item {
+    height: 30px;
+    line-height: 30px;
+    font-size: 25px;
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px #ccc solid;
+    text-align: center;
+    &:hover {
+      background-color: rgb(235, 235, 235);
+    }
+    cursor: move;
+  }
 }
 </style>
  
